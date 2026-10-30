@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vladimir Volkov | Data Quality &amp; Governance Engineer</title>
+<meta name="description" content="Portfolio of Vladimir Volkov, senior data quality and governance engineer in capital markets. Selected data-quality and ML projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vladimir Volkov — Senior FinTech QA &amp; Data Quality Engineer">
+<meta property="og:description" content="20+ years testing trading platforms, FIX connectivity, and market-data systems. Data-quality and governance automation for capital markets.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tolstii.github.io/og-image.png">
+<meta property="og:url" content="https://tolstii.github.io/">
+<meta property="og:image" content="https://tolstii.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://tolstii.github.io/">
+<!-- Google Search Console: paste YOUR token from the HTML-tag verification method and uncomment the line below -->
+<!-- <meta name="google-site-verification" content="PASTE_YOUR_TOKEN_HERE"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  /* Layout: single left-aligned column, project-forward; instrument-panel neutral with one signal-blue accent */
+  :root{
+    --bg:#F5F7FA; --surface:#FFFFFF; --ink:#12171F; --muted:#59646F;
+    --line:#E1E7ED; --accent:#155A86; --accent-soft:#E8F0F6;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:15px}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+  .wrap{max-width:60rem;margin:0 auto;
+    padding-left:max(20px,env(safe-area-inset-left,0px));
+    padding-right:max(20px,env(safe-area-inset-right,0px));
+    padding-block:clamp(2.2rem,6vw,4rem)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+  .top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,7vw,3rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
+  .role{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--muted);margin:.7rem 0 0}
+  .lead{max-width:40rem;margin:1.1rem 0 0;color:var(--ink);font-size:1.02rem}
+  .toggle{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;cursor:pointer}
+  .toggle:hover{color:var(--ink);border-color:var(--accent)}
+
+  .links{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin-top:1.3rem;font-family:var(--mono);font-size:.82rem;align-items:center}
+  .links .sep{color:var(--line)}
+  .copybtn{font-family:var(--mono);font-size:.8rem;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;border-bottom:1px dashed currentColor}
+  .copied{color:var(--muted);font-family:var(--mono);font-size:.72rem}
+
+  .caps{display:flex;flex-wrap:wrap;gap:.35rem .55rem;margin-top:1.6rem;font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+  .caps span{white-space:nowrap}
+  .caps .d{color:var(--accent);opacity:.6}
+
+  .rule{height:1px;background:var(--line);border:0;margin:2.6rem 0 0}
+  .sectlabel{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 1.1rem}
+
+  .grid{display:flex;flex-direction:column;gap:1.1rem}
+  .project{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(1.1rem,3.5vw,1.6rem);min-width:0}
+  .phead{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+  .pname{font-family:var(--serif);font-weight:600;font-size:1.3rem;line-height:1.2;margin:0;letter-spacing:-.005em}
+  .repo{font-family:var(--mono);font-size:.78rem;white-space:nowrap}
+  .status{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+    background:var(--accent-soft);border-radius:999px;padding:.2rem .6rem}
+  .pdesc{margin:.8rem 0 0;color:var(--muted);max-width:46rem}
+  .metrics{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+  .metric{font-family:var(--mono);font-size:.76rem;color:var(--ink);background:var(--accent-soft);
+    border-radius:6px;padding:.3rem .55rem;font-variant-numeric:tabular-nums}
+  .tech{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+  .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.22rem .5rem}
+
+  .bg{margin-top:1.4rem;color:var(--muted);max-width:46rem}
+  .firms{display:flex;flex-wrap:wrap;gap:.35rem .5rem;margin-top:.9rem;font-family:var(--mono);font-size:.76rem;color:var(--ink)}
+  .firms span{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.25rem .55rem}
+  .foot{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:.6rem 1rem;font-family:var(--mono);font-size:.82rem;align-items:center;color:var(--muted)}
+  .thesis{font-family:var(--serif);font-size:1.12rem;line-height:1.45;color:var(--ink);max-width:40rem;margin:0 0 1.3rem;border-left:3px solid var(--accent);padding-left:1rem}
+  .writing{display:flex;flex-direction:column;gap:.6rem}
+  .post{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;min-width:0}
+  .post .ptitle{font-family:var(--sans);font-weight:600;font-size:.98rem;color:var(--ink)}
+  .post .ptitle:hover{color:var(--accent)}
+  .pmeta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.25rem}
+  .more{font-family:var(--mono);font-size:.76rem;margin-top:.4rem}
+  .disclose{margin-top:1.2rem}
+  .disclose>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem}
+  .disclose>summary::-webkit-details-marker{display:none}
+  .disclose>summary::after{content:"+";font-weight:600}
+  .disclose[open]>summary::after{content:"\2013"}
+  .disclose>summary:hover{color:var(--ink);border-color:var(--accent)}
+  .disclose[open]>summary{margin-bottom:1rem}
+  .essays{display:flex;flex-direction:column;gap:.7rem;margin-top:1.3rem}
+  .essay{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .essay>summary{list-style:none;cursor:pointer;padding:.85rem 1.1rem;display:flex;flex-direction:column;gap:.18rem}
+  .essay>summary::-webkit-details-marker{display:none}
+  .essay>summary:hover .etitle{color:var(--accent)}
+  .essay .etitle{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.25;color:var(--ink)}
+  .essay .esub{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+  .essay[open]>summary{border-bottom:1px solid var(--line)}
+  .ebody{padding:1rem 1.1rem 1.2rem;max-width:46rem}
+  .ebody p{margin:0 0 .85rem;color:var(--ink)}
+  .ebody p:last-child{margin-bottom:0}
+  .fintech,.dq{background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;margin-top:1.6rem}
+  .ftlabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .ftlead{font-family:var(--serif);font-size:1.05rem;line-height:1.4;color:var(--ink);margin:.4rem 0 0;max-width:42rem}
+  .fintech .metric,.dq .metric{background:var(--surface)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h1>Vladimir Volkov</h1>
+        <p class="role">Senior FinTech QA &amp; Data Quality Engineer &middot; Capital Markets</p>
+      </div>
+      <button class="toggle" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
+    </div>
+
+    <p class="lead">FinTech QA specialist with 20+ years testing trading platforms, matching engines, FIX connectivity, and market-data systems across equities, FX, fixed income, and ETF. I build the test strategies, validation engines, and governance frameworks that keep financial systems and their data trustworthy. Hands-on in Python and SQL.</p>
+
+    <p class="lead">On the data side, I build the validation engines and governance frameworks that certify data is correct before anyone trusts it: enterprise warehouse migrations, ownership and 13F filing data, and DAMA-aligned quality programs. Five-layer validation and hybrid ML anomaly detection, all in plain Python.</p>
+
+    <div class="links">
+      <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">linkedin.com/in/vladimir-v-volkov</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/tolstii" target="_blank" rel="noopener">github.com/tolstii</a>
+      <span class="sep">/</span>
+      <button class="copybtn" id="emailBtn" type="button">mail4volk@gmail.com</button>
+      <span class="copied" id="copied" hidden>copied</span>
+    </div>
+
+    <div class="fintech">
+      <span class="ftlabel">FinTech QA</span>
+      <p class="ftlead">Two decades hardening the systems that move money: order management, execution, matching engines, and exchange connectivity.</p>
+      <div class="metrics">
+        <span class="metric">Tested trading platforms at $2B+ daily volume</span>
+        <span class="metric">FIX protocol across OMS, ECN, and matching engines</span>
+        <span class="metric">10+ global exchange feeds</span>
+        <span class="metric">Equities, FX, Fixed Income, ETF</span>
+      </div>
+    </div>
+
+    <div class="dq">
+      <span class="ftlabel">Data Quality &amp; Governance</span>
+      <p class="ftlead">Certifying data is correct before anyone trusts it: warehouse migrations, DAMA quality programs, and ML-driven anomaly detection.</p>
+      <div class="metrics">
+        <span class="metric">6-dimension DAMA-aligned quality scoring</span>
+        <span class="metric">95%+ score as the cutover gate</span>
+        <span class="metric">Hybrid ML: Isolation Forest + LSTM</span>
+        <span class="metric">Ownership, 13F &amp; Form 4 validation</span>
+      </div>
+    </div>
+
+    <div class="caps">
+      <span>QA &amp; Regression Testing</span><span class="d">&bull;</span>
+      <span>FIX Protocol Validation</span><span class="d">&bull;</span>
+      <span>Test Automation</span><span class="d">&bull;</span>
+      <span>Data Quality</span><span class="d">&bull;</span>
+      <span>Data Governance (DAMA)</span><span class="d">&bull;</span>
+      <span>Metadata &amp; Lineage</span><span class="d">&bull;</span>
+      <span>ML Anomaly Detection</span>
+    </div>
+  </header>
+
+  <hr class="rule">
+  <h2 class="sectlabel">Selected work</h2>
+
+  <div class="grid">
+
+    <article class="project">
+      <div class="phead">
+        <h3 class="pname">Enterprise Migration QA Engine</h3>
+        <span class="status">2025&ndash;26 &middot; Contract</span>
+      </div>
+      <p class="pdesc">Sole architect of the Python validation engine certifying a SQL Server and AS400/DB2 migration to Amazon Redshift. Five-layer validation (schema, counts, aggregates, samples, business rules) with cross-system reconciliation across 7+ heterogeneous sources.</p>
+      <div class="metrics">
+        <span class="metric">200+ tables, 15&ndash;20 applications</span>
+        <span class="metric">1,000+ automated tests</span>
+        <span class="metric">Replaced DataFold + ~10 contractors</span>
+        <span class="metric">Eliminated a silent false-pass defect class</span>
+      </div>
+      <div class="tech">
+        <span>Python</span><span>dbt</span><span>Redshift</span><span>Spark / EMR</span><span>GitLab CI/CD</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="phead">
+        <h3 class="pname">Financial Data Quality &amp; Governance Framework</h3>
+        <a class="repo" href="https://github.com/tolstii/BBG-POC" target="_blank" rel="noopener">github.com/tolstii/BBG-POC</a>
+      </div>
+      <p class="pdesc">A governance framework for ownership and 13F filing data. Hybrid ML validation pairs Isolation Forest with an LSTM and an active-learning loop, while NLP entity extraction and graph-based resolution handle unstructured filings.</p>
+      <div class="metrics">
+        <span class="metric">63% fewer false positives vs rule-based</span>
+        <span class="metric">500K+ data assets</span>
+        <span class="metric">12-category DAMA-extended profiling</span>
+        <span class="metric">+30% anomaly accuracy from active learning</span>
+      </div>
+      <div class="tech">
+        <span>Python</span><span>Isolation Forest</span><span>LSTM</span><span>spaCy</span><span>NetworkX</span><span>Streamlit</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="phead">
+        <h3 class="pname">GrandMarket Analytics Platform</h3>
+        <a class="repo" href="https://github.com/tolstii/grandmarket-analytics" target="_blank" rel="noopener">github.com/tolstii/grandmarket-analytics</a>
+      </div>
+      <p class="pdesc">An end-to-end analytics platform for multi-store wholesale and retail operations over synthetic data. Forecasting, anomaly detection, scenario P&amp;L, and a DAMA data-quality scorecard, all in one Streamlit app.</p>
+      <div class="metrics">
+        <span class="metric">97.8% overall data-quality score</span>
+        <span class="metric">5-dimension scorecard, 10-rule alerting</span>
+        <span class="metric">4-scenario P&amp;L with revenue-at-risk</span>
+        <span class="metric">Holt-Winters / SARIMAX forecasting</span>
+      </div>
+      <div class="tech">
+        <span>Python</span><span>Holt-Winters</span><span>SARIMAX</span><span>Isolation Forest</span><span>K-Means</span><span>Streamlit</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="phead">
+        <h3 class="pname">Data-Quality Triage Agent</h3>
+        <span class="status">In progress</span>
+      </div>
+      <p class="pdesc">Exploring agentic AI for QA. An LLM plans and routes while deterministic Python tools do the actual checks, classifying each failure as a real defect, a source-extract problem, a timing artifact, or a known-open issue.</p>
+      <div class="metrics">
+        <span class="metric">4-way failure classification</span>
+        <span class="metric">LLM orchestration, deterministic checks</span>
+      </div>
+      <div class="tech">
+        <span>Python</span><span>LLM orchestration</span><span>Agentic tooling</span>
+      </div>
+    </article>
+
+  </div>
+
+  <hr class="rule">
+  <h2 class="sectlabel">Perspective</h2>
+  <p class="thesis">Your testing framework can pass every test at every layer and still produce the wrong number. Someone has to test the tests.</p>
+  <div class="essays">
+    <details class="essay">
+      <summary><span class="etitle">Structure Tests Pass, the Answer Is Still Wrong</span><span class="esub">Every layer was green. The number was still wrong.</span></summary>
+      <div class="ebody">
+        <p>Your pipeline can pass every test at every layer and still put the wrong number on the dashboard. I have watched it happen more than once, and the postmortem always opens with the same awkward silence: every check was green.</p>
+        <p>We shifted testing left, and we were right to. There are contracts at ingestion now. There are dbt tests on Bronze, validations on Silver. Schema, nulls, uniqueness, freshness, row counts. Every layer reports green. So here is the question nobody enjoys: if every layer passed, why is the number on the dashboard wrong?</p>
+        <p>Because passing each layer does not compose into a correct output.</p>
+        <p>Three things I have seen break a clean pipeline:</p>
+        <p>A join fans out and doubles your revenue. Every row is still valid. Every field is still well-formed. The total is twice what it should be, and not one test fired.</p>
+        <p>A filter silently drops a segment. Every surviving row passes every check, because the rows that would have failed are simply gone. The data that remains is pristine. It is also incomplete, and nothing on the dashboard says so.</p>
+        <p>An aggregation rolls up over a null-filled column. The sum is clean. The math is wrong. Null is not zero, and the average you are reporting quietly excludes the rows you most needed to count.</p>
+        <p>Each of these tests asks the same narrow question: is this field well-formed? None of them asks the only question the business actually cares about: is the answer someone is about to read actually true?</p>
+        <p>We got very good at testing structure. We barely test meaning. And somewhere along the way we assumed that clean inputs plus green transforms equal correct outputs. That is not a data quality strategy. It is a logic error with a CI badge.</p>
+        <p>The missing layer is not another null check. It is reconciliation against what the business expects to be true. Does total volume tie back to the system of record? Does this KPI match the number finance closed on last quarter? If I sum the parts, do I get the whole?</p>
+        <p>In capital markets this is not optional. You tie position totals back to the book of record. You reconcile a P&amp;L figure to what finance signed off on. You replay the legs and check that they sum to the trade. The structural checks tell you the data is shaped correctly. The reconciliation tells you it is right. Those are different claims, and only one of them is what a trader or a CFO is relying on.</p>
+        <p>Structural correctness is necessary. It was never sufficient.</p>
+        <p>So when your dashboard is wrong, be honest about which failure it was. Did a test fail, or did every test pass and nobody checked the result?</p>
+      </div>
+    </details>
+    <details class="essay">
+      <summary><span class="etitle">Who Tests the Tests?</span><span class="esub">If nothing ever fails, how do you know your checks still work?</span></summary>
+      <div class="ebody">
+        <p>A few years ago I inherited a monitoring system with more than 200 data quality rules. The dashboards glowed green. Leadership was confident. The system had been "stable" for years.</p>
+        <p>I was skeptical. If nothing ever fails, how do we know the rules still work?</p>
+        <p>So I ran an experiment. I deliberately injected bad data. Nulls in key fields. Duplicates where keys were supposed to be unique. Values well outside any sane range. Broken referential integrity between tables that were supposed to agree.</p>
+        <p>A large share of the rules never fired. The dashboard stayed green while I was actively corrupting the data underneath it. Those rules had not been protecting anything for a long time. They were decoration with a nice color scheme.</p>
+        <p>This is the gap almost no one owns. Most organizations have QA validating code paths, Data Quality validating datasets, Observability tracking metrics, and Governance defining policies. Everyone trusts the safety net. No one tests the net itself.</p>
+        <p>And the failure modes are quiet by design. Test frameworks run clean while skipping the edge cases that matter. Checks stay green while the logic underneath them drifts. "Certified" datasets keep passing long after the assumptions behind the certification changed. The pipeline succeeds. The output is wrong. When your validation layer is not itself tested, you do not have quality. You have false confidence with CI/CD attached.</p>
+        <p>The fix is to treat validation like production code, because that is what it is.</p>
+        <p>Meta-QA: test your test framework the way you would test any other system. Prove it fails when it should.</p>
+        <p>Rule versioning: track when a rule changed and why, so you can see logic drift instead of discovering it at 3 AM.</p>
+        <p>Mutation testing: borrow the practice directly from software. In code, you deliberately break the logic to confirm the tests catch it. In data, almost nobody does this. So do it. Inject the fault on purpose, and confirm the alarm goes off. A rule that has never caught a failure is a hypothesis, not a control.</p>
+        <p>Cross-layer validation: align the code, the data, and the business meaning, so a number that is structurally valid still has to be true.</p>
+        <p>Consumer simulation: replay how the data is actually used, not just how it is stored.</p>
+        <p>Here is the uncomfortable shift underneath all of this. QA, SDET, and Data Quality are becoming the same discipline. In production, a bad outcome does not care whether it came from a code bug, bad data, or a broken assumption. The impact is identical. Treating them as separate teams with separate dashboards is how the gap stays open.</p>
+        <p>So if your dashboards have been green for months, one of two things is true. Your system is flawless, or your validation layer is irrelevant. You already know which is more likely.</p>
+        <p>The real question is about authority, not tooling. When something looks wrong, who gets to say "this is incorrect" and stop the release? Or does everyone wait for production to decide for them?</p>
+      </div>
+    </details>
+    <details class="essay">
+      <summary><span class="etitle">I Let an LLM Write My Data Quality Rules</span><span class="esub">It was fast. Most of it was reasonable. That is exactly the problem.</span></summary>
+      <div class="ebody">
+        <p>I let an LLM write my data quality rules. Here is what scared me.</p>
+        <p>It was fast. Genuinely impressive. I described a dataset, and in seconds it produced 40 validation rules. Null checks, range checks, referential integrity, distribution bounds. Most of them were reasonable.</p>
+        <p>That is the problem. "Reasonable" and "correct" are not the same thing, and an LLM cannot tell you which rules it got wrong. It can only tell you they all look right.</p>
+        <p>Look at what it gave me.</p>
+        <p>It flagged a field that should never be negative. Correct in general, except in our data negative values were legitimate reversals. The rule would have fired on perfectly good records.</p>
+        <p>It set a row-count tolerance. Reasonable, except it had no idea that volume drops on settlement holidays. The rule would have screamed every time the market was closed and stayed silent on the days that actually mattered.</p>
+        <p>It checked a join key for uniqueness. Right in principle, except it did not know which of two near-identical keys was the real one. It validated the wrong column with great confidence.</p>
+        <p>None of these are model failures. They are context failures. And context is exactly what the model does not have. It does not know your settlement calendar. It does not know your corporate actions. It does not know the vendor who sends nulls on holidays or the one who recycles identifiers every quarter.</p>
+        <p>Here is where I landed. An LLM can generate a thousand rules. It cannot tell you which one would have caught last quarter's incident. That is still your job.</p>
+        <p>So we did not remove the analyst by adding the LLM. We moved the analyst from writing rules to interrogating them. From typing out forty null checks by hand to asking which forty actually protect the number the business depends on. That is a better job. It is not a smaller one.</p>
+        <p>The danger is not that the model is wrong. The danger is that it is plausible. A rule that looks right and ships without anyone checking it against the real world is worse than no rule at all, because now you have a green check standing guard over an assumption nobody verified.</p>
+        <p>Use the model to suggest. Keep the authority to decide.</p>
+        <p>So the question I would put to any data team reaching for this: would you trust an LLM to define "correct" for your most critical dataset? Or only to suggest it?</p>
+      </div>
+    </details>
+    <details class="essay">
+      <summary><span class="etitle">Automation Killed Accountability</span><span class="esub">We automated execution and quietly deleted the person whose job was to ask how it breaks.</span></summary>
+      <div class="ebody">
+        <p>Shift left. Engineering owns quality. Automate everything.</p>
+        <p>We have heard these for years, and there is truth in all of them. But here is the uncomfortable part nobody puts on the slide: somewhere in that shift, we stopped having anyone whose job was to think about failure.</p>
+        <p>The pattern shows up the same way across teams and across industries. We automated execution. We optimized delivery. We bought dashboards. And we quietly removed the role whose entire job was to ask one question: how can this break?</p>
+        <p>In software, that role used to be the QA Analyst. In data, it was the Data Quality Analyst. Not the person who ran the scripts. The person who sat with the requirements before a line was written and asked what the 15 ways this could go wrong were, where the boundaries lived, and which scenarios never came up in the meeting.</p>
+        <p>Then we reorganized. We replaced QA Analysts with SDETs. We told developers to own quality. We bought tools, dashboards, and frameworks. All reasonable moves on their own. But look at who designs the test cases now.</p>
+        <p>Product owners write acceptance criteria, but they are not trained testers. Developers test the paths they built, and they test the happy ones, because they already believe the code works. SDETs automate those criteria into scripts, but automating a test is not the same as challenging whether the test is the right one. So who is left to ask how it breaks?</p>
+        <p>In a lot of organizations, the honest answer is nobody. The analytical layer got orphaned. Execution has three owners and strategy has none.</p>
+        <p>The same gap opened in data, just a few years later. Companies invested heavily in pipelines. They hired Data Engineers to build them. They bought observability platforms that surface every metric you could want. But who defines what correct data actually looks like?</p>
+        <p>Data Engineers move and transform data. That is the job, and it is a hard one. It does not always include stopping to ask whether this field should ever be negative, what happens when a vendor sends nulls on a holiday, or why row counts dropped 40 percent last night. Was that a failure, or was it seasonality? Tools can tell you the number moved. Only a person can tell you whether it was allowed to.</p>
+        <p>That is the distinction we keep missing. Tools can monitor data. Only people can define correctness.</p>
+        <p>So when something breaks, teams do not debug the logic anymore. They debug the alerts. They ask which threshold tripped and whether it can be tuned, instead of asking what assumption was wrong. That is not quality engineering. That is alert-driven development, and it only tells you about the failures someone already thought to instrument. The ones nobody anticipated stay invisible, because anticipating them was the job we deleted.</p>
+        <p>Software QA says we automated the tests. Data Quality says we implemented the checks. Observability says the dashboards are green. So when something goes wrong, everyone points at tooling, and no one points at a decision.</p>
+        <p>That is the real shape of the problem. Most organizations do not have a quality problem. They have a responsibility problem. The checks exist. The dashboards exist. What is missing is a person with the authority and the mandate to look at a result and say this is wrong, and to stop the release before it ships.</p>
+        <p>Automation did not eliminate bad quality. It eliminated accountability for it. We spread execution across four roles and left ownership of correctness with none of them.</p>
+        <p>You can buy every tool on the market and still not answer the only question that matters at 3 AM. If no one has the authority to say this is wrong, then quality does not exist in your organization. You just have not been caught yet.</p>
+        <p>So ask it plainly about your own team. When the next bad number ships, will someone own the decision that let it through? Or will everyone point at the dashboard that stayed green?</p>
+      </div>
+    </details>
+  </div>
+
+  <hr class="rule">
+  <h2 class="sectlabel">Background in brief</h2>
+  <p class="bg">Two decades in capital-markets quality assurance, from building and leading QA functions at VP level for trading, market-data, and matching-engine systems to data-quality and governance automation. Validated data across global exchanges in equities, FX, and fixed income. DAMA CDMP and Collibra Data Quality Steward in progress; Microsoft Responsible AI Fundamentals certified.</p>
+  <div class="firms">
+    <span>Rewards Network</span><span>Balyasny</span><span>Schonfeld</span><span>Cantor Fitzgerald</span><span>Citi / LavaTrading</span><span>Curex</span><span>ITG</span>
+  </div>
+
+  <div class="foot">
+    <span>Middletown, NJ</span>
+    <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/tolstii" target="_blank" rel="noopener">GitHub</a>
+    <button class="copybtn" id="emailBtn2" type="button">mail4volk@gmail.com</button>
+    <span class="copied" id="copied2" hidden>copied</span>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    function apply(t){ if(t==="dark"||t==="light") root.setAttribute("data-theme",t); }
+    try{ var s=localStorage.getItem("vv-theme"); if(s) apply(s); }catch(e){}
+    function current(){
+      var a=root.getAttribute("data-theme");
+      if(a) return a;
+      return (window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";
+    }
+    var tbtn=document.getElementById("themeBtn");
+    if(tbtn){ tbtn.addEventListener("click",function(){
+      var next=current()==="dark"?"light":"dark";
+      apply(next);
+      try{ localStorage.setItem("vv-theme",next); }catch(e){}
+    }); }
+    function sel(el){
+      try{ var r=document.createRange(); r.selectNodeContents(el);
+        var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+    }
+    function wireCopy(id,fbId){
+      var b=document.getElementById(id); if(!b) return;
+      b.addEventListener("click",function(){
+        var email="mail4volk@gmail.com";
+        var done=function(){ var c=document.getElementById(fbId); if(c){ c.hidden=false; setTimeout(function(){c.hidden=true;},1600);} };
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(email).then(done).catch(function(){ sel(b); });
+        }else{ sel(b); }
+      });
+    }
+    wireCopy("emailBtn","copied"); wireCopy("emailBtn2","copied2");
+  })();
+</script>
+</body>
+</html>
