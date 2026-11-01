@@ -113,7 +113,7 @@
   .essay>summary{list-style:none;cursor:pointer;padding:.85rem 1.1rem;display:flex;flex-direction:column;gap:.18rem}
   .essay>summary::-webkit-details-marker{display:none}
   .essay>summary:hover .etitle{color:var(--accent)}
-  .essay .etitle{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.25;color:var(--ink)}
+  .essay .etitle{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.25;color:var(--ink);margin:0}
   .essay .esub{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
   .essay[open]>summary{border-bottom:1px solid var(--line)}
   .ebody{padding:1rem 1.1rem 1.2rem;max-width:46rem}
@@ -139,6 +139,38 @@
     background:#10456A;color:#EAF3FA;border-radius:12px;padding:1.25rem 1.4rem}
   .bridge b{color:#8FD0F2;font-weight:600}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vladimir Volkov",
+  "url": "https://tolstii.github.io/",
+  "jobTitle": "Senior FinTech QA & Data Quality Engineer",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Middletown",
+    "addressRegion": "NJ",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/vladimir-v-volkov",
+    "https://github.com/tolstii"
+  ],
+  "knowsAbout": [
+    "Data Quality",
+    "Data Governance",
+    "DAMA Framework",
+    "QA Engineering",
+    "Test Automation",
+    "Data Validation",
+    "FIX Protocol",
+    "Capital Markets",
+    "Anomaly Detection",
+    "Python",
+    "SQL"
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -291,7 +323,7 @@
   <p class="thesis">Your testing framework can pass every test at every layer and still produce the wrong number. Someone has to test the tests.</p>
   <div class="essays">
     <details class="essay">
-      <summary><span class="etitle">Structure Tests Pass, the Answer Is Still Wrong</span><span class="esub">Every layer was green. The number was still wrong.</span></summary>
+      <summary><h3 class="etitle">Structure Tests Pass, the Answer Is Still Wrong</h3><span class="esub">Every layer was green. The number was still wrong.</span></summary>
       <div class="ebody">
         <p>Your pipeline can pass every test at every layer and still put the wrong number on the dashboard. I have watched it happen more than once, and the postmortem always opens with the same awkward silence: every check was green.</p>
         <p>We shifted testing left, and we were right to. There are contracts at ingestion now. There are dbt tests on Bronze, validations on Silver. Schema, nulls, uniqueness, freshness, row counts. Every layer reports green. So here is the question nobody enjoys: if every layer passed, why is the number on the dashboard wrong?</p>
@@ -309,7 +341,7 @@
       </div>
     </details>
     <details class="essay">
-      <summary><span class="etitle">Who Tests the Tests?</span><span class="esub">If nothing ever fails, how do you know your checks still work?</span></summary>
+      <summary><h3 class="etitle">Who Tests the Tests?</h3><span class="esub">If nothing ever fails, how do you know your checks still work?</span></summary>
       <div class="ebody">
         <p>A few years ago I inherited a monitoring system with more than 200 data quality rules. The dashboards glowed green. Leadership was confident. The system had been "stable" for years.</p>
         <p>I was skeptical. If nothing ever fails, how do we know the rules still work?</p>
@@ -329,7 +361,7 @@
       </div>
     </details>
     <details class="essay">
-      <summary><span class="etitle">I Let an LLM Write My Data Quality Rules</span><span class="esub">It was fast. Most of it was reasonable. That is exactly the problem.</span></summary>
+      <summary><h3 class="etitle">I Let an LLM Write My Data Quality Rules</h3><span class="esub">It was fast. Most of it was reasonable. That is exactly the problem.</span></summary>
       <div class="ebody">
         <p>I let an LLM write my data quality rules. Here is what scared me.</p>
         <p>It was fast. Genuinely impressive. I described a dataset, and in seconds it produced 40 validation rules. Null checks, range checks, referential integrity, distribution bounds. Most of them were reasonable.</p>
@@ -347,7 +379,7 @@
       </div>
     </details>
     <details class="essay">
-      <summary><span class="etitle">Automation Killed Accountability</span><span class="esub">We automated execution and quietly deleted the person whose job was to ask how it breaks.</span></summary>
+      <summary><h3 class="etitle">Automation Killed Accountability</h3><span class="esub">We automated execution and quietly deleted the person whose job was to ask how it breaks.</span></summary>
       <div class="ebody">
         <p>Shift left. Engineering owns quality. Automate everything.</p>
         <p>We have heard these for years, and there is truth in all of them. But here is the uncomfortable part nobody puts on the slide: somewhere in that shift, we stopped having anyone whose job was to think about failure.</p>
