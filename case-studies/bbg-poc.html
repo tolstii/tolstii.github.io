@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Financial Data Quality &amp; Governance Framework | Vladimir Volkov</title>
+<meta name="description" content="Case study: a hybrid-ML governance framework for ownership and 13F filing data. Isolation Forest + LSTM, active learning, NLP entity extraction, and graph resolution, in plain Python on synthetic data.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Financial Data Quality &amp; Governance Framework — Case Study">
+<meta property="og:description" content="Hybrid-ML validation for ownership and 13F data: Isolation Forest + LSTM, active learning, NLP, and graph resolution.">
+<meta property="og:url" content="https://tolstii.github.io/case-studies/bbg-poc.html">
+<link rel="canonical" href="https://tolstii.github.io/case-studies/bbg-poc.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#F5F7FA; --surface:#FFFFFF; --ink:#12171F; --muted:#59646F;
+    --line:#E1E7ED; --accent:#155A86; --accent-soft:#E8F0F6;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:15px}
+  .wrap{max-width:52rem;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:clamp(2rem,6vw,3.4rem)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+  .nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+  .navinner{max-width:52rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem max(20px,env(safe-area-inset-left,0px))}
+  .back{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
+  .back:hover{color:var(--ink);text-decoration:none}
+  .toggle{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;cursor:pointer}
+  .toggle:hover{color:var(--ink);border-color:var(--accent)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,6vw,2.6rem);line-height:1.08;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
+  .role{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin:.7rem 0 0}
+  .repo{font-family:var(--mono);font-size:.8rem;margin-top:.5rem;display:inline-block}
+  .lead{max-width:40rem;margin:1.1rem 0 0;font-size:1.05rem}
+  h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:2.4rem 0 .8rem}
+  h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:1.4rem 0 .3rem}
+  p{max-width:40rem}
+  .metrics{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0}
+  .metric{font-family:var(--mono);font-size:.76rem;color:var(--ink);background:var(--accent-soft);border-radius:6px;padding:.3rem .55rem;font-variant-numeric:tabular-nums}
+  .tech{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
+  .tech span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.22rem .5rem}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.74rem;margin:1rem 0;padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+  .flow .node{border:1px solid var(--line);border-radius:6px;padding:.3rem .55rem;background:var(--bg)}
+  .flow .node.k{border-color:var(--accent);color:var(--accent)}
+  .flow .ar{color:var(--muted)}
+  ul{max-width:40rem;padding-left:1.1rem}
+  li{margin:.35rem 0}
+  .note{background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:.8rem 1rem;margin:1.2rem 0;max-width:40rem;font-size:.92rem}
+  .foot{margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.6rem 1rem}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navinner">
+  <a class="back" href="../index.html#work">&larr; Vladimir Volkov</a>
+  <button class="toggle" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
+</div></nav>
+<div class="wrap">
+  <p class="eyebrow">Case study &middot; Portfolio POC</p>
+  <h1>Financial Data Quality &amp; Governance Framework</h1>
+  <p class="role">Hybrid-ML validation for ownership &amp; 13F filing data &middot; Python, synthetic data</p>
+  <a class="repo" href="https://github.com/tolstii/BBG-POC" target="_blank" rel="noopener">github.com/tolstii/BBG-POC</a>
+
+  <p class="lead">A proof-of-concept governance framework for the hardest kind of financial data to validate: ownership and 13F filings, where the same holder appears under a dozen name variants and the defects are semantic, not structural. It pairs statistical and deep-learning anomaly detection, routes the uncertain cases to a human, and resolves messy entities with NLP and a graph. Built clean-room on synthetic data.</p>
+
+  <h2>The problem</h2>
+  <p>Ownership data breaks rules that schema checks never see. A filing is well-formed and still wrong: the same institution filed under three spellings, a position is an order of magnitude off but inside the column's range, a 13F and a Form 4 disagree on the same holder. Rule-based validation either misses these or drowns the analyst in false positives, because a fixed threshold can't tell a real anomaly from normal variation across 500K+ data assets.</p>
+
+  <h2>Approach</h2>
+  <p>The framework treats detection as a layered pipeline, cheapest checks first, with the model reserved for what rules can't judge.</p>
+  <div class="flow">
+    <span class="node">raw filings</span><span class="ar">&rarr;</span>
+    <span class="node">NLP extract (spaCy)</span><span class="ar">&rarr;</span>
+    <span class="node">graph resolve (NetworkX)</span><span class="ar">&rarr;</span>
+    <span class="node">DAMA profiling</span><span class="ar">&rarr;</span>
+    <span class="node k">hybrid detector</span><span class="ar">&rarr;</span>
+    <span class="node">active learning</span>
+  </div>
+
+  <h3>Hybrid anomaly detection</h3>
+  <p>An Isolation Forest flags point anomalies (a single value that doesn't belong) and an LSTM flags sequence anomalies (a holding whose trajectory over quarters is wrong). Combined, they catch both "wrong now" and "wrong pattern," which neither model does alone.</p>
+
+  <h3>Active learning, so the model improves where it is weakest</h3>
+  <p>Instead of retraining on random samples, the pipeline routes its most uncertain cases to a human reviewer, and those confirmed labels feed the next training round. The loop is guarded: the model learns from human-confirmed labels, not from its own prior guesses.</p>
+
+  <h3>NLP and graph resolution for unstructured filings</h3>
+  <p>spaCy extracts entities and holdings language from free-text filings; a NetworkX graph resolves which filings refer to the same underlying holder across aliases, subsidiaries, and spellings, so transitive matches resolve cleanly (if A = B and B = C, then A = C).</p>
+
+  <h3>Profiling as the foundation</h3>
+  <p>A 12-category profiling framework extending the DAMA dimensions measures completeness, accuracy, consistency, and timeliness per field, producing the baselines that set thresholds and the features the models learn from.</p>
+
+  <h2>What the POC reports</h2>
+  <div class="metrics">
+    <span class="metric">63% fewer false positives vs rule-based</span>
+    <span class="metric">+30% anomaly accuracy from active learning</span>
+    <span class="metric">500K+ synthetic data assets</span>
+    <span class="metric">12-category DAMA-extended profiling</span>
+    <span class="metric">Streamlit dashboard, 12 live metrics</span>
+  </div>
+  <div class="note">These are the POC's own results on synthetic data, not a production benchmark. The point of the project is the architecture: a defensible way to combine statistical and deep-learning detection with a human-in-the-loop, so the model assists judgment instead of replacing it.</div>
+
+  <div class="tech">
+    <span>Python</span><span>Isolation Forest</span><span>LSTM</span><span>Active learning</span><span>spaCy</span><span>NetworkX</span><span>Streamlit</span>
+  </div>
+
+  <div class="foot">
+    <a href="../index.html#work">&larr; All work</a>
+    <a href="https://github.com/tolstii/BBG-POC" target="_blank" rel="noopener">Repository</a>
+    <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+<script>
+(function(){var root=document.documentElement;function apply(t){if(t==="dark"||t==="light")root.setAttribute("data-theme",t);}
+try{var s=localStorage.getItem("vv-theme");if(s)apply(s);}catch(e){}
+function cur(){var a=root.getAttribute("data-theme");if(a)return a;return(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}
+var b=document.getElementById("themeBtn");if(b)b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";apply(n);try{localStorage.setItem("vv-theme",n);}catch(e){}});})();
+</script>
+</body>
+</html>

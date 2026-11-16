@@ -138,6 +138,12 @@
   .bridge{font-family:var(--serif);font-size:1.2rem;line-height:1.45;margin:1.5rem 0 0;
     background:#10456A;color:#EAF3FA;border-radius:12px;padding:1.25rem 1.4rem}
   .bridge b{color:#8FD0F2;font-weight:600}
+  .headline{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+  .stat{flex:1 1 9rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem}
+  .stat .num{display:block;font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .stat .lab{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem}
+  .cslink{margin-top:1rem;font-family:var(--mono);font-size:.78rem}
+  .cslink a{font-weight:500}
 </style>
 <script type="application/ld+json">
 {
@@ -200,6 +206,12 @@
     <p class="lead">On the data side, I build the validation engines and governance frameworks that certify data is correct before anyone trusts it: enterprise warehouse migrations, ownership and 13F filing data, and DAMA-aligned quality programs. Five-layer validation and hybrid ML anomaly detection, all in plain Python.</p>
 
     <p class="bridge">Most QA tests the system. Most data quality tests the data. <b>I do both:</b> the execution path and the numbers flowing through it.</p>
+
+    <div class="headline">
+      <div class="stat"><span class="num">20+ yrs</span><span class="lab">Capital-markets QA</span></div>
+      <div class="stat"><span class="num">$2B+/day</span><span class="lab">Trading volume tested</span></div>
+      <div class="stat"><span class="num">1,000+</span><span class="lab">Automated tests, live migration</span></div>
+    </div>
 
     <div class="links">
       <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">linkedin.com/in/vladimir-v-volkov</a>
@@ -281,6 +293,7 @@
       <div class="tech">
         <span>Python</span><span>Isolation Forest</span><span>LSTM</span><span>spaCy</span><span>NetworkX</span><span>Streamlit</span>
       </div>
+      <p class="cslink"><a href="case-studies/bbg-poc.html">Read the case study &rarr;</a></p>
     </article>
 
     <article class="project">
@@ -293,11 +306,12 @@
         <span class="metric">97.8% overall data-quality score</span>
         <span class="metric">5-dimension scorecard, 10-rule alerting</span>
         <span class="metric">4-scenario P&amp;L with revenue-at-risk</span>
-        <span class="metric">Holt-Winters / SARIMAX forecasting</span>
+        <span class="metric">Holt-Winters + exponential smoothing</span>
       </div>
       <div class="tech">
-        <span>Python</span><span>Holt-Winters</span><span>SARIMAX</span><span>Isolation Forest</span><span>K-Means</span><span>Streamlit</span>
+        <span>Python</span><span>pandas</span><span>Holt-Winters</span><span>Exponential smoothing</span><span>Statistical anomaly detection</span><span>Streamlit</span>
       </div>
+      <p class="cslink"><a href="case-studies/grandmarket.html">Read the case study &rarr;</a></p>
     </article>
 
     <article class="project">
