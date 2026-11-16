@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume | Vladimir Volkov</title>
+<meta name="description" content="Resume of Vladimir Volkov, senior QA and data-quality engineer in capital markets. 20+ years across trading systems, market data, and enterprise data-quality and governance.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tolstii.github.io/resume.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#F5F7FA; --surface:#FFFFFF; --ink:#12171F; --muted:#59646F;
+    --line:#E1E7ED; --accent:#155A86; --accent-soft:#E8F0F6;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0B0F15; --surface:#131A22; --ink:#E9EFF5; --muted:#93A0AE;
+    --line:#232E39; --accent:#64A8D6; --accent-soft:#17303F; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:14.5px}
+  .wrap{max-width:54rem;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:clamp(1.6rem,5vw,2.8rem)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+  .nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+  .navinner{max-width:54rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem max(20px,env(safe-area-inset-left,0px))}
+  .back{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
+  .back:hover{color:var(--ink);text-decoration:none}
+  .navr{display:flex;gap:.5rem;align-items:center}
+  .btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;cursor:pointer}
+  .btn:hover{color:var(--ink);border-color:var(--accent)}
+  .btn.cta{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+
+  header.r{margin-top:.4rem}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.05;letter-spacing:-.01em;margin:.4rem 0 0}
+  .role{font-family:var(--mono);font-size:.82rem;letter-spacing:.03em;color:var(--muted);margin:.6rem 0 0}
+  .contact{display:flex;flex-wrap:wrap;gap:.4rem .8rem;margin-top:.8rem;font-family:var(--mono);font-size:.8rem;align-items:center}
+  .contact .sep{color:var(--line)}
+  .copybtn{font-family:var(--mono);font-size:.8rem;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;border-bottom:1px dashed currentColor}
+  .copied{color:var(--muted);font-family:var(--mono);font-size:.72rem}
+
+  h2{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.9rem 0 .7rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+  .summary{max-width:46rem;color:var(--ink)}
+
+  .job{margin:0 0 1.15rem}
+  .jhead{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+  .co{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:0;letter-spacing:-.005em}
+  .when{font-family:var(--mono);font-size:.75rem;color:var(--muted);white-space:nowrap}
+  .titleline{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin-top:.15rem}
+  .title{font-family:var(--sans);font-weight:600;font-size:.9rem;color:var(--accent)}
+  .loc{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+  ul{margin:.5rem 0 0;padding-left:1.1rem}
+  li{margin:.3rem 0;max-width:48rem}
+  .proj .co{font-size:1.02rem}
+  .repo{font-family:var(--mono);font-size:.76rem}
+
+  .skillrow{display:grid;grid-template-columns:11rem 1fr;gap:.3rem 1rem;padding:.5rem 0;border-bottom:1px solid var(--line)}
+  .skillrow:last-child{border-bottom:0}
+  .skillrow .k{font-family:var(--mono);font-size:.74rem;color:var(--accent);letter-spacing:.02em}
+  .skillrow .v{color:var(--ink);font-size:.9rem}
+  @media(max-width:620px){.skillrow{grid-template-columns:1fr;gap:.1rem}}
+
+  .edu{display:flex;flex-wrap:wrap;gap:.3rem 2rem}
+  .edu .k{font-family:var(--mono);font-size:.74rem;color:var(--accent)}
+  .foot{margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.6rem 1rem}
+
+  @media print{
+    .nav{display:none} body{background:#fff;color:#000;font-size:10.5px}
+    .wrap{max-width:none;padding:0 .2in}
+    h1{font-size:1.7rem} a{color:#000;text-decoration:none}
+    h2{border-color:#999;color:#333;margin:1rem 0 .4rem}
+    .co,.title,.eyebrow,.skillrow .k,.edu .k{color:#000}
+    .skillrow,.job,li{break-inside:avoid} .foot{display:none}
+    .contact{font-size:9px}
+  }
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navinner">
+  <a class="back" href="index.html">&larr; Vladimir Volkov</a>
+  <div class="navr">
+    <button class="btn cta" id="printBtn" type="button">Print / Save PDF</button>
+    <button class="btn" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
+  </div>
+</div></nav>
+<div class="wrap">
+  <header class="r">
+    <p class="eyebrow">Resume</p>
+    <h1>Vladimir Volkov</h1>
+    <p class="role">Senior QA &amp; Data Quality Engineer &middot; Capital Markets</p>
+    <div class="contact">
+      <span>Middletown, NJ</span><span class="sep">/</span>
+      <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">linkedin.com/in/vladimir-v-volkov</a><span class="sep">/</span>
+      <a href="https://github.com/tolstii" target="_blank" rel="noopener">github.com/tolstii</a><span class="sep">/</span>
+      <button class="copybtn" id="emailBtn" type="button">mail4volk@gmail.com</button>
+      <span class="copied" id="copied" hidden>copied</span>
+    </div>
+  </header>
+
+  <h2>Summary</h2>
+  <p class="summary">Senior QA and data-quality engineer with 20+ years in capital markets across trading systems, market data, and institutional securities. I build the test strategies, validation engines, and governance frameworks that keep financial systems and their data trustworthy: observability, lineage, medallion reconciliation, SLA monitoring, and automated validation at enterprise scale. Most recently sole architect of a 10-pipeline, 400+-table migration validation engine with 1,000+ tests that replaced a commercial data-quality platform and roughly ten external contractors. DAMA-aligned (CDMP in progress); hands-on in Python, SQL, PySpark, and KDB+/Q. Comfortable in both leadership and individual-contributor roles.</p>
+
+  <h2>Professional Experience</h2>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Rewards Network</h3><span class="when">Nov 2025 &ndash; Present</span></div>
+    <div class="titleline"><span class="title">Senior Data Quality Engineer (Contract)</span><span class="loc">Remote</span></div>
+    <ul>
+      <li>Architected and solely owned the Python QA validation engine certifying a SQL Server and AS400/DB2 to Amazon Redshift enterprise migration: 10 pipelines, 400+ tables across 15&ndash;20 applications, 5-layer validation (schema, counts, aggregates, samples, business rules), and 1,000+ unit tests.</li>
+      <li>Delivered validation across 7+ heterogeneous sources (AS400/DB2, MSSQL, Salesforce, Kafka, API, S3) with Spark and EMR connectors and a cross-system referential-integrity framework for legacy-to-new reconciliation.</li>
+      <li>Eliminated a recurring silent-false-pass defect class and hardened the engine against false failures on production-scale data (numeric overflow, numeric identifiers, approximate-distinct flicker), establishing the project's first clean validation baseline.</li>
+      <li>Set post-migration data-quality strategy for the medallion (Bronze/Silver/Gold) architecture on an equality-versus-reconciliation model; authored the dbt Test Catalog adopted as the warehouse quality standard.</li>
+      <li>Drove engineering quality: ruff from 563 errors to 0, test suite from 540 to 1,000+, registry-based pipeline standardization, and full GitLab CI/CD, TeamCity, and Vault integration.</li>
+      <li>Replaced a commercial data-quality platform (DataFold) and the equivalent of ~10 external data contractors with the automated validation engine, materially cutting migration QA cost and effort (impact confirmed in the client off-boarding review).</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Balyasny Asset Management L.P.</h3><span class="when">Feb 2024 &ndash; Jul 2025</span></div>
+    <div class="titleline"><span class="title">Sr. Data Quality Analyst</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Automated observability and QA checks across AWS S3 pipelines, reducing discrepancies by 30% and improving detection of upstream data-quality issues.</li>
+      <li>Built a unified governance dashboard integrating lineage, KPIs, SLA compliance, and medallion classification to guide strategic data usage and oversight.</li>
+      <li>Designed Streamlit and Grafana dashboards for SLA monitoring, anomaly detection, and KPI tracking, achieving 95% compliance with regulatory data standards.</li>
+      <li>Overhauled the legacy QC framework using DataHub and EventHub, improving data integrity by 20%; refined SLA alert thresholds via rolling statistics and historical profiling, cutting false positives by 40%.</li>
+      <li>Defined severity-based incident triage with SLA-driven escalation, cutting resolution time by 25%; documented the data lifecycle, identified key data elements, and drove issue remediation with platform and compliance teams.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Schonfeld Strategic Advisors</h3><span class="when">Aug 2018 &ndash; Dec 2023</span></div>
+    <div class="titleline"><span class="title">Sr. Data Quality Assurance Engineer</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Sole QA engineer for pricing and reference data, validating critical financial datasets with KDB+ and Q.</li>
+      <li>Enhanced the on-prem QC framework with 15+ checks and a multi-phase roadmap, reducing QA incidents by 25%; built automated validation pipelines on AWS Lake Formation, Athena, and Python, with DQ checks at each ETL stage across 40+ pricing and reference datasets.</li>
+      <li>Implemented test models identifying 100+ vendor dataset bugs across TRTH, TAQ, and BBO datasets; led data quality for 10+ global exchange feeds with KDB+ and Athena scorecards.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Cantor Fitzgerald</h3><span class="when">Sep 2015 &ndash; Jul 2018</span></div>
+    <div class="titleline"><span class="title">Vice President, QA</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Established QA for the ETF Trading Desk as the first QA hire; designed and built an automated testing framework including FIX Client and Exchange Simulators.</li>
+      <li>Executed functional and regression tests across Liquidity Providing, Liquidity Taking, and RFQ workflows for the Fixed Income market-making platform; partnered with quants to validate bond-algorithm components using R.</li>
+      <li>Tested GUI and server-side components for domestic and international Portfolio Trading platforms.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Curex Group</h3><span class="when">Mar 2013 &ndash; Sep 2015</span></div>
+    <div class="titleline"><span class="title">Vice President, QA</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Led the QA automation strategy for an institutional FX trading platform, reducing manual testing by 30%.</li>
+      <li>Designed end-to-end testing for Market Data, OMS, ECN, and Index flows across GUI and back end; built reusable script modules to speed regression cycles.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">LavaTrading @ Citi</h3><span class="when">Feb 2007 &ndash; Mar 2013</span></div>
+    <div class="titleline"><span class="title">Vice President, QA</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Designed and built a QA/testing framework for the LavaTrading Matching Engine using QTP and Aegis; integrated QA tools into CI workflows for earlier bug detection.</li>
+      <li>Enhanced regression testing with complex scenarios to improve functionality coverage and code coverage; developed comprehensive test harnesses.</li>
+      <li>Served as test lead for ColorBook II, a smart order router (SOR), through its successful global launch.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="jhead"><h3 class="co">Investment Technology Group (ITG)</h3><span class="when">Aug 2005 &ndash; Feb 2007</span></div>
+    <div class="titleline"><span class="title">Principal, QA</span><span class="loc">New York, NY</span></div>
+    <ul>
+      <li>Directed QA for the Radical XE trading system using SILK TEST and QuickFIX in an agile environment.</li>
+      <li>Developed automation harnesses and a centralized test-script library; oversaw integration, regression, and acceptance testing of new builds.</li>
+      <li>Debugged via FIX and server logs and backend error analysis; resolved issues in test infrastructure including databases and exchange simulators.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="job proj">
+    <div class="jhead"><h3 class="co">Financial Data Quality &amp; Governance Framework</h3><a class="repo" href="https://github.com/tolstii/BBG-POC" target="_blank" rel="noopener">github.com/tolstii/BBG-POC</a></div>
+    <ul>
+      <li>Built a hybrid ML validation system for ownership/13F data using Isolation Forest and LSTM, achieving 63% false-positive reduction versus rule-based methods.</li>
+      <li>Constructed a 12-category DAMA-extended profiling framework with NLP entity extraction (spaCy) and graph resolution (NetworkX) across 500K+ assets; Streamlit dashboard with an active-learning loop improving anomaly accuracy by 30%. <span class="loc">(synthetic data)</span></li>
+    </ul>
+  </div>
+  <div class="job proj">
+    <div class="jhead"><h3 class="co">GrandMarket Analytics Platform</h3><a class="repo" href="https://github.com/tolstii/grandmarket-analytics" target="_blank" rel="noopener">github.com/tolstii/grandmarket-analytics</a></div>
+    <ul>
+      <li>Built a Streamlit analytics POC for multi-store wholesale/retail operations over synthetic data (12 stores, 500 SKUs, ~300K transactions), with hand-built Holt-Winters, exponential-smoothing, and ensemble forecasting plus statistical anomaly detection (rolling mean/std) for pricing, invoice, and delivery discrepancies.</li>
+      <li>Delivered executive analytics (4-scenario P&amp;L with revenue-at-risk, cash-conversion-cycle optimization, EOQ reorder, ABC/XYZ classification) and a 5-dimension DAMA data-quality scorecard with a 10-rule alerting system.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skillrow"><span class="k">Testing &amp; QA</span><span class="v">Test strategy; functional, regression, integration, acceptance; automated data validation; pytest, Great Expectations; FIX protocol validation (4.2/4.4); exchange/client simulators; CI-integrated testing</span></div>
+  <div class="skillrow"><span class="k">Data Quality &amp; Governance</span><span class="v">Observability, SLA monitoring, anomaly detection, lineage, metadata, medallion reconciliation, data-quality rules, critical data elements, issue remediation, DAMA-DMBOK</span></div>
+  <div class="skillrow"><span class="k">Languages &amp; ML</span><span class="v">SQL (Redshift, T-SQL, DB2), Python, PySpark, Q, R; Isolation Forest, LSTM, Holt-Winters</span></div>
+  <div class="skillrow"><span class="k">Data &amp; Cloud</span><span class="v">AWS (S3, Redshift, EMR, Athena, Glue), Databricks, KDB+, Snowflake, SQL Server, Oracle, Sybase, AS400/DB2, Postgres, MongoDB, DuckDB, Kafka, Salesforce, Airflow, dbt</span></div>
+  <div class="skillrow"><span class="k">Automation &amp; Tooling</span><span class="v">QTP, SILK TEST, LoadRunner, QuickFIX, VeriFIX, Aegis, Robot Framework, GitLab CI/CD, TeamCity, Vault, ruff, DataHub, DataFold, Streamlit, Grafana, Git, Jira</span></div>
+  <div class="skillrow"><span class="k">Domain &amp; Methods</span><span class="v">Capital markets; trading systems (equities, FX, fixed income, ETF); market &amp; reference data; hedge funds; Agile, XP, Waterfall</span></div>
+
+  <h2>Education &amp; Certifications</h2>
+  <div class="edu">
+    <span><span class="k">Education</span> &nbsp; Odessa National Maritime University, B.S., Engineering</span>
+    <span><span class="k">Certifications</span> &nbsp; DAMA CDMP (in progress) &nbsp;|&nbsp; Microsoft Responsible AI</span>
+  </div>
+
+  <div class="foot">
+    <a href="index.html">&larr; Portfolio</a>
+    <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/tolstii" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  function apply(t){if(t==="dark"||t==="light")root.setAttribute("data-theme",t);}
+  try{var s=localStorage.getItem("vv-theme");if(s)apply(s);}catch(e){}
+  function cur(){var a=root.getAttribute("data-theme");if(a)return a;return(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}
+  var tb=document.getElementById("themeBtn");
+  if(tb)tb.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";apply(n);try{localStorage.setItem("vv-theme",n);}catch(e){}});
+  var pb=document.getElementById("printBtn");
+  if(pb)pb.addEventListener("click",function(){window.print();});
+  var eb=document.getElementById("emailBtn");
+  if(eb)eb.addEventListener("click",function(){
+    var email="mail4volk@gmail.com";
+    function done(){var c=document.getElementById("copied");if(c){c.hidden=false;setTimeout(function(){c.hidden=true;},1600);}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(email).then(done).catch(function(){});}
+  });
+})();
+</script>
+</body>
+</html>

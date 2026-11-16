@@ -54,7 +54,7 @@
   .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,7vw,3rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
   .role{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--muted);margin:.7rem 0 0}
-  .lead{max-width:40rem;margin:1.1rem 0 0;color:var(--ink);font-size:1.02rem}
+  .lead{max-width:none;margin:1.1rem 0 0;color:var(--ink);font-size:1.02rem}
   .toggle{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
     background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;cursor:pointer}
   .toggle:hover{color:var(--ink);border-color:var(--accent)}
@@ -110,12 +110,12 @@
   .disclose[open]>summary{margin-bottom:1rem}
   .essays{display:flex;flex-direction:column;gap:.7rem;margin-top:1.3rem}
   .essay{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .essay>summary{list-style:none;cursor:pointer;padding:.85rem 1.1rem;display:flex;flex-direction:column;gap:.18rem}
+  .essay>summary{list-style:none;cursor:pointer;padding:.85rem 2.6rem .85rem 1.1rem;display:flex;flex-direction:column;gap:.18rem;position:relative}.essay>summary::after{content:"+";position:absolute;right:1.1rem;top:.9rem;font-family:var(--mono);font-size:1.1rem;font-weight:600;color:var(--accent);line-height:1}.essay[open]>summary::after{content:"–"}
   .essay>summary::-webkit-details-marker{display:none}
-  .essay>summary:hover .etitle{color:var(--accent)}
+  .essay>summary:hover .etitle{color:var(--accent)}.essay>summary:hover{background:var(--accent-soft)}
   .essay .etitle{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.25;color:var(--ink);margin:0}
   .essay .esub{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
-  .essay[open]>summary{border-bottom:1px solid var(--line)}
+  .essay[open]>summary{border-bottom:1px solid var(--line)}.essayhint{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin:.4rem 0 0}
   .ebody{padding:1rem 1.1rem 1.2rem;max-width:46rem}
   .ebody p{margin:0 0 .85rem;color:var(--ink)}
   .ebody p:last-child{margin-bottom:0}
@@ -142,8 +142,8 @@
   .stat{flex:1 1 9rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem}
   .stat .num{display:block;font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
   .stat .lab{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem}
-  .cslink{margin-top:1rem;font-family:var(--mono);font-size:.78rem}
-  .cslink a{font-weight:500}
+  .cslink{margin-top:1.1rem}
+  .cslink a{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.76rem;font-weight:600;letter-spacing:.04em;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent);border-radius:999px;padding:.4rem .75rem}.cslink a:hover{background:var(--accent);color:var(--surface);text-decoration:none}
 </style>
 <script type="application/ld+json">
 {
@@ -186,7 +186,7 @@
       <span class="d">&middot;</span>
       <a href="#writing">Writing</a>
       <span class="d">&middot;</span>
-      <a href="#background">Background</a>
+      <a href="#background">Background</a><span class="d">&middot;</span><a href="resume.html">Resume</a>
     </div>
     <button class="toggle" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
   </div>
@@ -335,7 +335,7 @@
   <h2 class="sectlabel" id="writing">Perspective</h2>
   <p class="epigraph">&ldquo;Believe those who are seeking the truth, doubt those who find it.&rdquo; <cite>&mdash; André Gide</cite></p>
   <p class="thesis">Your testing framework can pass every test at every layer and still produce the wrong number. Someone has to test the tests.</p>
-  <div class="essays">
+  <p class="essayhint">Four short pieces &middot; select any title to expand and read it in full.</p><div class="essays">
     <details class="essay">
       <summary><h3 class="etitle">Structure Tests Pass, the Answer Is Still Wrong</h3><span class="esub">Every layer was green. The number was still wrong.</span></summary>
       <div class="ebody">
@@ -423,7 +423,7 @@
   </div>
 
   <div class="foot">
-    <span>Middletown, NJ</span>
+    <span>Middletown, NJ</span><a href="resume.html">Resume</a>
     <a href="https://linkedin.com/in/vladimir-v-volkov" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/tolstii" target="_blank" rel="noopener">GitHub</a>
     <button class="copybtn" id="emailBtn2" type="button">mail4volk@gmail.com</button>
